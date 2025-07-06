@@ -1,0 +1,23 @@
+services:
+  mongodb:
+    image: mongodb/mongodb-community-server:latest
+    container_name: mongodb.compose
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: secret
+  web:
+    build:
+      context: .
+      dockerfile: GtMotive.Estimate.Microservice.Host/Dockerfile
+    container_name: microservice.compose
+    ports:
+      - "62907:80"
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+      - ASPNETCORE_ENVIRONMENT=Development
+      - MongoDb__ConnectionString=mongodb://admin:secret@mongodb:27017/
+      - MongoDb__MongoDbDatabaseName=RentDB
+    depends_on:
+      - mongodb

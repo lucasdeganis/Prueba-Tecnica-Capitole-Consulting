@@ -1,0 +1,16 @@
+[*.{cs,vb}]
+
+dotnet_diagnostic.SA1600.severity = error
+dotnet_diagnostic.SA1601.severity = error
+
+# CS1591: Falta el comentario XML para el tipo o miembro visible públicamente
+dotnet_diagnostic.CS1591.severity = none
+
+# CS1712: El parámetro de tipo no tiene una etiqueta typeparam coincidente en el comentario XML (pero otros parámetros de tipo sí)
+dotnet_diagnostic.CS1712.severity = none
+
+# CS8073: El resultado de la expresión siempre es el mismo ya que un valor de este tipo siempre es igual a "null"
+dotnet_diagnostic.CS8073.severity = silent
+
+# CS0168: La variable está declarada pero nunca se usa
+dotnet_diagnostic.CS0168.severity = silent
